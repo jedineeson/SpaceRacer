@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space Racer Jimmy", "Assembly-CSharp.csproj", "{887D230E-9289-2221-D3DE-BF3BD1A0EE44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space Racer Jimmy", "Assembly-CSharp-Editor.csproj", "{5626811F-962F-ADE2-1F46-534302BE03B2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{887D230E-9289-2221-D3DE-BF3BD1A0EE44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{887D230E-9289-2221-D3DE-BF3BD1A0EE44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{887D230E-9289-2221-D3DE-BF3BD1A0EE44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{887D230E-9289-2221-D3DE-BF3BD1A0EE44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5626811F-962F-ADE2-1F46-534302BE03B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5626811F-962F-ADE2-1F46-534302BE03B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5626811F-962F-ADE2-1F46-534302BE03B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5626811F-962F-ADE2-1F46-534302BE03B2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

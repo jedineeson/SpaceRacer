@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Boost
+  - Objective
+  - Obstacle
+  - Wall
+  - Player
+  - PlayerBullet
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BigSpaceShip
+    uniqueID: 3502126851
+    locked: 0
+  - name: YellowStars
+    uniqueID: 1253992281
+    locked: 0
+  - name: Ship
+    uniqueID: 1049597461
+    locked: 0
