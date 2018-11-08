@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
         get { return m_Results; }
     }
 
-    private Result[] m_Result = new Result[4];
+    private Result[] m_Result = new Result[5];
     public Result[] Result
     {
         get { return m_Result; }
@@ -62,11 +62,17 @@ public class ScoreManager : MonoBehaviour
         m_Result[3] = new Result();
     }
 
+    public void SetLevel(int index)
+    {
+        m_Level = index;
+    }
+
+
     public void UpdateScoreList(int aLevel, float aScore)
     {
-        m_Result[aLevel].UpdateScoreList(aScore);
         m_LastResult = aScore;
         m_Level = aLevel;
+        m_Result[aLevel].UpdateScoreList(aScore);
     }
 
     public void SetStarsCount(int aLevel, int aStarsCount)

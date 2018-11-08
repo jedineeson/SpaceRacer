@@ -22,6 +22,7 @@ public class Result
         get { return m_ScoreList; }
     }
 
+
     public void SetLevelInt(int aLevel)
     {
         m_Level = aLevel;

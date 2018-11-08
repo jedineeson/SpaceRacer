@@ -5,20 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    
-
-    /*private int m_StarsCount;
-    public int StarsCount
-    {
-        get { return m_StarsCount; }
-    }
-
-    private List<float> m_ScoreList = new List<float>();
-    public List<float> ScoreList
-    {
-        get { return m_ScoreList; }
-    }*/
-
     private static LevelManager m_Instance;
     public static LevelManager Instance
     {
@@ -51,6 +37,12 @@ public class LevelManager : MonoBehaviour
         }
         else if (aScene == "Level1")
         {
+            ScoreManager.Instance.SetLevel(0);
+            AudioManager.Instance.PlayMusic("MusicGame");
+        }
+        else if (aScene == "Survival")
+        {
+            ScoreManager.Instance.SetLevel(3);
             AudioManager.Instance.PlayMusic("MusicGame");
         }
         SceneManager.LoadScene(aScene);

@@ -4,17 +4,48 @@ using UnityEngine;
 
 public class CHEATS : MonoBehaviour
 {
+    private static CHEATS m_Instance;
+    public static CHEATS Instance
+    {
+        get
+        {
+            return m_Instance;
+        }
+    }
 
-	private void Start ()
+    private void Awake()
+    {
+        if (m_Instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            m_Instance = this;
+        }
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start ()
     {
 #if UNITY_CHEAT
-        Debug.Log("That cheat!");
+    Debug.Log("Debug Mode");
+#else 
+    gameObject.setActive(false);
 #endif
-        Debug.Log("That yesn't cheat!");
     }
-	
-	private void Update ()
+
+    private void Update ()
     {
-		
-	}
+#if UNITY_CHEAT
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            if (GameManager.Instance.ShipController != null)
+            {
+                GameManager.Instance.ShipController.SetLife(1000);
+                Debug.Log("GAIN LIFE");
+            }
+        }
+#endif
+    }
 }

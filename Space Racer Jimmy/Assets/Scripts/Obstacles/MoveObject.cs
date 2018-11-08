@@ -8,20 +8,15 @@ public class MoveObject : MonoBehaviour
     private float m_MoveSpeed;
     [SerializeField]
     private bool m_Invert = false;
+
     private bool m_GoToPos1 = true;
     private bool m_GoToPos2 = false;
-    private Vector3 m_ToPos1;
-    private Vector3 m_ToPos2;
+
+    /*private Vector3 m_PosUp = new Vector3(0f, 25f, 0f);
+    private Vector3 m_PosBot = new Vector3(0f, -25f, 0f);*/
 
     private void Start ()
     {
-        Vector3 scaleY = transform.localScale;
-        scaleY.x = 0f;
-        scaleY.z = 0f;
-        scaleY.y *= 0.25f;
-        m_ToPos1 = transform.position + scaleY;
-        m_ToPos2 = transform.position - scaleY;
-
         if (m_Invert)
         { 
            m_GoToPos1 = false;
@@ -29,14 +24,14 @@ public class MoveObject : MonoBehaviour
         }
     }
 	
-	void Update ()
+	private void Update ()
     {
-        if (transform.position.y >= m_ToPos1.y)
+        if (transform.position.y >= 0.25f)
         {
             m_GoToPos1 = false;
             m_GoToPos2 = true;
         }
-        else if (transform.position.y <= m_ToPos2.y)
+        else if (transform.position.y <= -0.25f)
         {
             m_GoToPos2 = false;
             m_GoToPos1 = true;
@@ -49,5 +44,11 @@ public class MoveObject : MonoBehaviour
         {
             transform.Translate(Vector3.up * Time.deltaTime * m_MoveSpeed);
         }
+    }
+
+    public void SetUpObstacles(float aMoveSpeed, bool aInvert)
+    {
+        m_MoveSpeed = aMoveSpeed;
+        m_Invert = aInvert;
     }
 }

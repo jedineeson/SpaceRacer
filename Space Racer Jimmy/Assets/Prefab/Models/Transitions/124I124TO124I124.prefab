@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 23247481499599982}
   - component: {fileID: 95556401300631560}
   - component: {fileID: 54224200027650130}
+  - component: {fileID: 114804965460203454}
   m_Layer: 29
   m_Name: 124I124TO124I124
   m_TagString: Untagged
@@ -245,6 +246,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 15ea8c25701238642a083190b2ebbe78, type: 2}
   m_StaticBatchInfo:
@@ -279,6 +281,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -313,6 +316,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -347,6 +351,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -381,6 +386,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -544,6 +550,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114610464546349100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -559,3 +566,15 @@ MonoBehaviour:
   m_NewCamXLimit: 0.25
   m_NewCamYLimit: 0.25
   m_ObjectivesCount: 0
+--- !u!114 &114804965460203454
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1979114318416738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49479c7fae0deda4c917492e791019e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HitSFX: {fileID: 8300000, guid: 486c4196e95d0f749b1f03af83196492, type: 3}

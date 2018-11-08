@@ -65,10 +65,10 @@
     <None Include="Assets\FbxExporters\Editor\FbxSdk\LICENSE.txt" />
     <None Include="Assets\FbxExporters\Editor\FbxSdk\README.txt" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>D:/Users/1810027/Desktop/Projet/Space Racer Jimmy/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>D:/Users/1810027/Desktop/Projet/SpaceRacer/Space Racer Jimmy/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>D:/Users/1810027/Desktop/Projet/Space Racer Jimmy/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>D:/Users/1810027/Desktop/Projet/SpaceRacer/Space Racer Jimmy/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity2018.1.6/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -245,7 +245,7 @@
       <HintPath>C:/Program Files/Unity2018.1.6/Editor/Data/Managed/Unity.Locator.dll</HintPath>
     </Reference>
     <Reference Include="Facebook.Unity.Settings">
-      <HintPath>D:/Users/1810027/Desktop/Projet/Space Racer Jimmy/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+      <HintPath>D:/Users/1810027/Desktop/Projet/SpaceRacer/Space Racer Jimmy/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
     </Reference>
     <Reference Include="Vuforia.UnityExtensions.Editor">
       <HintPath>C:/Program Files/Unity2018.1.6/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Editor/Vuforia.UnityExtensions.Editor.dll</HintPath>
@@ -329,19 +329,19 @@
       <HintPath>C:/Program Files/Unity2018.1.6/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="UnityFbxPrefab">
-      <HintPath>D:/Users/1810027/Desktop/Projet/Space Racer Jimmy/Assets/FbxExporters/UnityFbxPrefab.dll</HintPath>
+      <HintPath>D:/Users/1810027/Desktop/Projet/SpaceRacer/Space Racer Jimmy/Assets/FbxExporters/UnityFbxPrefab.dll</HintPath>
     </Reference>
     <Reference Include="UnityFbxExporterEditor">
-      <HintPath>D:/Users/1810027/Desktop/Projet/Space Racer Jimmy/Assets/FbxExporters/Editor/UnityFbxExporterEditor.dll</HintPath>
+      <HintPath>D:/Users/1810027/Desktop/Projet/SpaceRacer/Space Racer Jimmy/Assets/FbxExporters/Editor/UnityFbxExporterEditor.dll</HintPath>
     </Reference>
     <Reference Include="UnityFbxSdk">
-      <HintPath>D:/Users/1810027/Desktop/Projet/Space Racer Jimmy/Assets/FbxExporters/Editor/FbxSdk/Plugins/UnityFbxSdk.dll</HintPath>
+      <HintPath>D:/Users/1810027/Desktop/Projet/SpaceRacer/Space Racer Jimmy/Assets/FbxExporters/Editor/FbxSdk/Plugins/UnityFbxSdk.dll</HintPath>
     </Reference>
     <Reference Include="TextMeshPro-2017.3-Editor">
-      <HintPath>D:/Users/1810027/Desktop/Projet/Space Racer Jimmy/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Editor.dll</HintPath>
+      <HintPath>D:/Users/1810027/Desktop/Projet/SpaceRacer/Space Racer Jimmy/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Editor.dll</HintPath>
     </Reference>
     <Reference Include="TextMeshPro-2017.3-Runtime">
-      <HintPath>D:/Users/1810027/Desktop/Projet/Space Racer Jimmy/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll</HintPath>
+      <HintPath>D:/Users/1810027/Desktop/Projet/SpaceRacer/Space Racer Jimmy/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>D:/Users/1810027/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.7/Editor/UnityEditor.Advertisements.dll</HintPath>

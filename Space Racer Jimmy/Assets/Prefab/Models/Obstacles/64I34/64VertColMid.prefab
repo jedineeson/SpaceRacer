@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 95162595091021302}
   - component: {fileID: 54017759892238098}
   - component: {fileID: 65179497555779908}
+  - component: {fileID: 114103521669323036}
   m_Layer: 28
   m_Name: 64VertColMid
   m_TagString: Untagged
@@ -57,6 +58,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: fb4c2c3631953ba43bf3382130e2eabb, type: 2}
   m_StaticBatchInfo:
@@ -129,3 +131,16 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114103521669323036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1933996314693660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49479c7fae0deda4c917492e791019e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HitSFX: {fileID: 8300000, guid: 486c4196e95d0f749b1f03af83196492, type: 3}

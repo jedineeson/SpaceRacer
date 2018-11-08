@@ -5,7 +5,6 @@
     T3434,//1
     T6434,//2
     T6464,//3
-    T64642,//4
     T9494,//5
     Tr3434to3434,
     Tr3434to6434,
@@ -23,6 +22,17 @@
     Tr9494to6434,
     Tr9494to6464,
     Tr9494to9494,
-    GenerateTunnel
+    GenerateTunnel,
+    Propeller,
+    High3434,
+    Left3434,
+    Right3434,
+    Low3434,
+    High6464,
+    Left6464,
+    Right6464,
+    Low6464,
+    Mid6434,
+    Bonus
 }
 

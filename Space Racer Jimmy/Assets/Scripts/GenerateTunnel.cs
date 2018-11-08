@@ -8,7 +8,7 @@ public class GenerateTunnel : MonoBehaviour
     {
         if (aOther.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            MakeTunnel.Instance.GenerateTunnel();
+            GameManager.Instance.TunnelGenerator.GenerateTunnel();
         }
     }
 }

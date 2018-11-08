@@ -15,7 +15,7 @@ public class UI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI m_StartCount;
     [SerializeField]
-    private ShipController m_ShipController;
+    private ControllerBase m_ShipController;
 
     private void Start()
     {
@@ -61,7 +61,7 @@ public class UI : MonoBehaviour
         m_StartCount.text = "SET";
         yield return new WaitForSeconds(1f);
         m_StartCount.text = "GO!";
-        m_ShipController.SetCanControl();
+        m_ShipController.CanControl = true;
         yield return new WaitForSeconds(1f);
         m_StartCount.gameObject.SetActive(false);
     }

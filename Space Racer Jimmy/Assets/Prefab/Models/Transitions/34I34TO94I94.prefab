@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 33104194159707726}
   - component: {fileID: 23867002130330376}
   - component: {fileID: 95017550375758266}
+  - component: {fileID: 114452464939880258}
   m_Layer: 29
   m_Name: 34I34TO94I94
   m_TagString: Untagged
@@ -565,3 +566,15 @@ MonoBehaviour:
   m_NewCamXLimit: 0.15
   m_NewCamYLimit: 0.15
   m_ObjectivesCount: 0
+--- !u!114 &114452464939880258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1727500996604456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49479c7fae0deda4c917492e791019e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HitSFX: {fileID: 8300000, guid: 486c4196e95d0f749b1f03af83196492, type: 3}

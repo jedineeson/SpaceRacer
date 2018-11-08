@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23537619797014162}
   - component: {fileID: 95821372025253162}
   - component: {fileID: 114259188109516026}
+  - component: {fileID: 114987534114161726}
   m_Layer: 29
   m_Name: 64I34TO64I64
   m_TagString: Untagged
@@ -417,3 +418,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PoolType: 13
   m_Quantity: 100
+--- !u!114 &114987534114161726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1034490441905304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49479c7fae0deda4c917492e791019e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HitSFX: {fileID: 8300000, guid: 486c4196e95d0f749b1f03af83196492, type: 3}

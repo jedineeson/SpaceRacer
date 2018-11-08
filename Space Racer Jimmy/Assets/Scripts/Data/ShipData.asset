@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c75d3b6ca2da7f54da2cd8346475a218, type: 3}
+  m_Name: ShipData
+  m_EditorClassIdentifier: 
+  m_Acceleration: 2
+  m_SlowDownSpeed: 0.5
+  m_BreakSpeed: 5
+  m_VelocityMax: 25
+  m_MovSpeed: 0.4
+  m_RotationSpeed: 2
+  m_Hp: 5
+  m_HitBonusTextDuration: 0.75
+  m_GoLeft: {fileID: 4155672392751148, guid: 784a1df5ded57af4da35ae1008e4166f, type: 2}
+  m_GoLeftLeft: {fileID: 4178242843711720, guid: 116cde8008ad72a4f8c4bab858806c1c,
+    type: 2}
+  m_GoLeftRight: {fileID: 4132916062074430, guid: 2f1555a2a0710b641a93a7a595afce0c,
+    type: 2}
+  m_GoRight: {fileID: 4333825454192048, guid: 80fb9100a00a35644a3a4a8db6415004, type: 2}
+  m_GoRightLeft: {fileID: 4065112327138368, guid: b381cfa333daa6346b67629c8ec4e181,
+    type: 2}
+  m_GoRightRight: {fileID: 4342037029507370, guid: b83e7c2f0303f5e4582f86bfe24a0f1b,
+    type: 2}
+  m_GoStraight: {fileID: 4187697158131094, guid: ae12a8d32d85ddc4b8489ae4f7a4a8d5,
+    type: 2}
+  m_GoStraightLeft: {fileID: 4768917537290144, guid: b4f312178144d2e4a9616658090f5a37,
+    type: 2}
+  m_GoStraightRight: {fileID: 4688985497354044, guid: ab28a22bf990a394ea0866c5720165ed,
+    type: 2}

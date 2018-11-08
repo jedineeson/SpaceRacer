@@ -62,8 +62,16 @@ public class SelectALevel : MonoBehaviour
             }
             else
             {
-                List<float> scoreList = ScoreManager.Instance.Result[ScoreManager.Instance.Level].ScoreList.OrderBy(number => number).ToList();
-                m_HighScore.text = scoreList[m_Level].ToString("f2") + " secs";
+                if (m_Level != 3)
+                {
+                    List<float> scoreList = ScoreManager.Instance.Result[m_Level].ScoreList.OrderBy(number => number).ToList();
+                    m_HighScore.text = scoreList[0].ToString("f2") + " secs";
+                }
+                else
+                {
+                    List<float> scoreList = ScoreManager.Instance.Result[m_Level].ScoreList.OrderByDescending(number => number).ToList();
+                    m_HighScore.text = scoreList[0].ToString("f2") + " secs";             
+                }
             }
 
             for (int i = 0; i <= 2; i++)

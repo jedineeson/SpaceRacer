@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 4812085417242584}
   - component: {fileID: 95880043924507914}
   - component: {fileID: 54459193588925376}
+  - component: {fileID: 114109836446924184}
   m_Layer: 28
   m_Name: 94I94propeller
   m_TagString: Untagged
@@ -205,6 +206,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: fb4c2c3631953ba43bf3382130e2eabb, type: 2}
   m_StaticBatchInfo:
@@ -289,6 +291,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!108 &108776672527224368
 Light:
   m_ObjectHideFlags: 1
@@ -325,6 +328,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114109836446924184
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1075368407893496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49479c7fae0deda4c917492e791019e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HitSFX: {fileID: 8300000, guid: 486c4196e95d0f749b1f03af83196492, type: 3}
 --- !u!114 &114949576358252286
 MonoBehaviour:
   m_ObjectHideFlags: 1
