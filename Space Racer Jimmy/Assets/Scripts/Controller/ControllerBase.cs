@@ -6,11 +6,18 @@ using TMPro;
 public class ControllerBase : MonoBehaviour
 {
     [SerializeField]
-    protected ShipData m_Data;
+    private TimerBase m_Timer;
     [SerializeField]
-    protected TextMeshPro m_BonusText;
+    private ShipData m_Data;
     [SerializeField]
-    protected TextMeshPro m_HitText;
+    private TextMeshPro m_BonusText;
+    [SerializeField]
+    private TextMeshPro m_HitText;
+
+    [SerializeField]
+    private bool m_CanRespawn;
+    [SerializeField]
+    private List<Transform> m_SpawnPos;
 
     #region ContainsInData
     protected float m_Acceleration;
@@ -21,8 +28,6 @@ public class ControllerBase : MonoBehaviour
     protected float m_RotationSpeed;
     protected float m_Hp;
     protected float m_HitBonusTextDuration;
-    #endregion
-
     protected Transform m_GoLeft;
     protected Transform m_GoLeftLeft;
     protected Transform m_GoLeftRight;
@@ -32,24 +37,27 @@ public class ControllerBase : MonoBehaviour
     protected Transform m_GoStraight;
     protected Transform m_GoStraightLeft;
     protected Transform m_GoStraightRight;
+    #endregion
 
-    protected Vector3 m_ShipDirection = new Vector3();
+    private Vector3 m_ShipDirection = new Vector3();
 
-    protected float m_Timer = 0f;
-    protected float m_HpMax;
-    protected float m_HitTextTimer;
-    protected float m_BonusTextTimer;
-    protected float m_Velocity = 0f;
-    protected float m_EndTimer = 3f;
-    protected float m_Horizontal;
-    protected float m_Vertical;
+    private float m_HpMax;
+    private float m_HitTextTimer;
+    private float m_BonusTextTimer;
+    private float m_Velocity = 0f;
+    private float m_EndTimer = 3f;
+    private float m_Horizontal;
+    private float m_Vertical;
 
-    protected bool m_CanControl = false;
-    protected bool m_BonusIsActive = true;
-    protected bool m_Respawn = false;
-    protected bool m_EndTimerTrigger = false;
+    private bool m_CanControl = false;
+    private bool m_BonusIsActive = true;
+    private bool m_Respawn = false;
+    private bool m_EndTimerTrigger = false;
 
-    public float Timer
+    private int m_ZoneReach = 0;
+    private int m_ObjectivesCount = 0;
+
+    public TimerBase Timer
     {
         get { return m_Timer; }
     }
@@ -75,6 +83,7 @@ public class ControllerBase : MonoBehaviour
         get { return m_HitBonusTextDuration; }
         set { m_HitBonusTextDuration = value; }
     }
+
     public bool EndTimerTrigger
     {
         get { return m_EndTimerTrigger; }
@@ -90,7 +99,7 @@ public class ControllerBase : MonoBehaviour
         set { m_BonusIsActive = value; }
     }
 
-    protected virtual void Start()
+    private void Start()
     {
         #region SetValueFromData
         m_Acceleration = m_Data.Acceleration;
@@ -115,17 +124,22 @@ public class ControllerBase : MonoBehaviour
         m_HpMax = m_Hp;
         m_BonusText.gameObject.SetActive(false);
         m_HitText.gameObject.SetActive(false);
+        GameManager.Instance.ShipController = this;
     }
 
-    protected virtual void Update()
+    private void Update()
     {
         Move();
         ShowUIFeedBack();
-        UpdateTimer();
         CheckEndTimer();
+
+        if (m_Respawn)
+        {
+            Respawn();
+        }
     }
 
-    protected virtual void Move()
+    private void Move()
     {
         m_Horizontal = Input.GetAxis("Horizontal");
         m_Vertical = Input.GetAxis("Vertical");
@@ -236,15 +250,13 @@ public class ControllerBase : MonoBehaviour
         }
     }
 
-    protected virtual void EndRun(int aLevel)
+    public void EndRun(int aLevel)
     {
+        ScoreManager.Instance.UpdateScoreList(aLevel, m_Timer.Timer);
+        m_Timer.EndTimer();
         m_EndTimerTrigger = true;
+        GameManager.Instance.TunnelGenerator.ReturnStuff();
         LevelManager.Instance.ChangeLevel("Result");
-    }
-
-    protected virtual void UpdateTimer()
-    {
-
     }
 
     public virtual void SetLife(int aGain)
@@ -264,8 +276,76 @@ public class ControllerBase : MonoBehaviour
         }
     }
 
-    public void EnterInTheEndTrigger()
+    private void OnCollisionExit(Collision aOther)
     {
-        EndRun(0);
+        LifeUnder0();
+    }
+
+    private void OnTriggerExit(Collider aOther)
+    {
+        LifeUnder0();
+        if (aOther.gameObject.layer == LayerMask.NameToLayer("Objective"))
+        {
+            m_ObjectivesCount += 1;
+        }
+    }
+
+    private void Respawn()
+    {
+        transform.rotation = Quaternion.Lerp(transform.rotation, m_GoStraight.rotation, m_RotationSpeed * Time.deltaTime * 10);
+        transform.position = Vector3.Lerp(transform.position, m_SpawnPos[m_ZoneReach].position, Time.deltaTime);
+
+        if (transform.position.z <= m_SpawnPos[m_ZoneReach].position.z + 1
+            && (transform.position.x >= m_SpawnPos[m_ZoneReach].position.x - 0.1 && transform.position.x <= m_SpawnPos[m_ZoneReach].position.x + 0.1)
+                && (transform.position.y >= m_SpawnPos[m_ZoneReach].position.y - 0.1 && transform.position.y <= m_SpawnPos[m_ZoneReach].position.y + 0.1))
+        {
+            m_CanControl = true;
+            m_Velocity = 0f;
+            m_Hp = m_HpMax;
+            m_Respawn = false;
+        }
+    }
+
+    private void LifeUnder0()
+    {
+        m_CanControl = false;
+
+        if (m_Hp <= 0)
+        {
+            if (m_CanRespawn)
+            {
+                m_Respawn = true;
+            }
+            else
+            {
+                EndRun(3);
+            }
+        }
+    }
+
+    public void GetBonus(float aBonus, int aObjectives)
+    {
+        if (m_BonusIsActive)
+        {
+            if (m_CanRespawn && m_ObjectivesCount >= aObjectives)
+            {
+                m_Timer.TimeBonus(-aBonus);
+                m_BonusText.text = "-" + aBonus.ToString();
+            }
+            else if (!m_CanRespawn)
+            {
+                m_Timer.TimeBonus(aBonus);
+                m_BonusText.text = "+" + aBonus.ToString();
+            }
+            m_BonusTextTimer = m_HitBonusTextDuration;
+            m_ObjectivesCount = 0;
+            m_ZoneReach += 1;
+            m_BonusIsActive = true;
+        }
+    }
+
+    public void IncreaseObjectivesCount()
+    {
+        m_ObjectivesCount += 1;
     }
 }

@@ -19,15 +19,15 @@ public class EndRun : MonoBehaviour
         {
             if (GameManager.Instance.ShipController != null)
             {
-                if (GameManager.Instance.ShipController.Timer <= m_Gold)
+                if (GameManager.Instance.ShipController.Timer.Timer <= m_Gold)
                 {
                     ScoreManager.Instance.SetStarsCount(m_Level, 3);
                 }
-                else if (GameManager.Instance.ShipController.Timer <= m_Silver)
+                else if (GameManager.Instance.ShipController.Timer.Timer <= m_Silver)
                 {
                     ScoreManager.Instance.SetStarsCount(m_Level, 2);
                 }
-                else if (GameManager.Instance.ShipController.Timer <= m_Bronze)
+                else if (GameManager.Instance.ShipController.Timer.Timer <= m_Bronze)
                 {
                     ScoreManager.Instance.SetStarsCount(m_Level, 1);
                 }
@@ -35,7 +35,7 @@ public class EndRun : MonoBehaviour
                 {
                     ScoreManager.Instance.SetStarsCount(m_Level, 0);
                 }
-                GameManager.Instance.ShipController.EnterInTheEndTrigger(); ;
+                GameManager.Instance.ShipController.EndRun(m_Level); ;
             }
         }
     }

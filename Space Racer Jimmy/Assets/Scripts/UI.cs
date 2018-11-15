@@ -15,7 +15,9 @@ public class UI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI m_StartCount;
     [SerializeField]
-    private ControllerBase m_ShipController;
+    private TimerBase m_Timer;
+    [SerializeField]
+    private ControllerBase m_Ship;
 
     private void Start()
     {
@@ -26,29 +28,29 @@ public class UI : MonoBehaviour
 
     private void Update ()
     {
-        m_VelocityText.text = ("SPEED: " + (m_ShipController.Velocity * 10).ToString("F2"));
-        m_HpBar.SetColor(Color.Lerp(Color.red, Color.green, m_ShipController.Hp / m_ShipController.HpMax));
-        if (m_ShipController.Timer < 10)
+        m_VelocityText.text = ("SPEED: " + (m_Ship.Velocity * 10).ToString("F2"));
+        m_HpBar.SetColor(Color.Lerp(Color.red, Color.green, m_Ship.Hp / m_Ship.HpMax));
+        if (m_Timer.Timer < 10)
         {
-            m_TimerText.text = ("RUN: 0" + (m_ShipController.Timer).ToString("F2"));
+            m_TimerText.text = ("RUN: 0" + (m_Timer.Timer).ToString("F2"));
         }
         else
         {
-            m_TimerText.text = ("RUN: " + (m_ShipController.Timer).ToString("F2"));
+            m_TimerText.text = ("RUN: " + (m_Timer.Timer).ToString("F2"));
         }
 
-        if (m_ShipController.EndTimerTrigger == true)
+        if (m_Ship.EndTimerTrigger == true)
         {
             m_TimerText.gameObject.SetActive(false);
             m_StartCount.gameObject.SetActive(true);
 
-            if (m_ShipController.Timer < 10f && m_ShipController.Timer >= 0f)
+            if (m_Timer.Timer < 10f && m_Timer.Timer >= 0f)
             {
-                m_StartCount.text = ("RUN: 0" + (m_ShipController.Timer).ToString("F2"));
+                m_StartCount.text = ("RUN: 0" + (m_Timer.Timer).ToString("F2"));
             }
             else
             {
-                m_StartCount.text = ("RUN: " + (m_ShipController.Timer).ToString("F2"));
+                m_StartCount.text = ("RUN: " + (m_Timer.Timer).ToString("F2"));
             }
         }
     }
@@ -61,7 +63,7 @@ public class UI : MonoBehaviour
         m_StartCount.text = "SET";
         yield return new WaitForSeconds(1f);
         m_StartCount.text = "GO!";
-        m_ShipController.CanControl = true;
+        m_Ship.CanControl = true;
         yield return new WaitForSeconds(1f);
         m_StartCount.gameObject.SetActive(false);
     }

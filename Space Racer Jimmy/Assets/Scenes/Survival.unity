@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -300,7 +300,8 @@ MonoBehaviour:
   m_TimerText: {fileID: 510962938}
   m_HpBar: {fileID: 2127611417}
   m_StartCount: {fileID: 1765650070}
-  m_ShipController: {fileID: 1253107616}
+  m_Timer: {fileID: 907000075}
+  m_Ship: {fileID: 1253107613}
 --- !u!114 &228721847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1073,6 +1074,48 @@ RectTransform:
   m_AnchoredPosition: {x: 1.8, y: 1.8}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &907000074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 907000076}
+  - component: {fileID: 907000075}
+  m_Layer: 0
+  m_Name: Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &907000075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 907000074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47fff2654be0114bbd5dbd80eec66c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Player: {fileID: 1253107613}
+  m_StartTimer: 15
+--- !u!4 &907000076
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 907000074}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1253107610
 Transform:
   m_ObjectHideFlags: 0
@@ -1103,7 +1146,7 @@ GameObject:
   - component: {fileID: 1253107610}
   - component: {fileID: 1253107618}
   - component: {fileID: 1253107617}
-  - component: {fileID: 1253107616}
+  - component: {fileID: 1253107613}
   - component: {fileID: 1253107615}
   - component: {fileID: 1253107614}
   - component: {fileID: 1253107612}
@@ -1150,6 +1193,23 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1253107613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1253107611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0242cdb34ab230f43bcc51f76c0bb7ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Timer: {fileID: 907000075}
+  m_Data: {fileID: 11400000, guid: cb6fb63d64ba7874b94cba37586f524c, type: 2}
+  m_BonusText: {fileID: 674161876}
+  m_HitText: {fileID: 489879880}
+  m_CanRespawn: 0
+  m_SpawnPos: []
 --- !u!54 &1253107614
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1181,21 +1241,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: dd22c4bb9a418ed4381a8de40af3f551, type: 3}
---- !u!114 &1253107616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1253107611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d721135f305863b488c488f27bb44509, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Data: {fileID: 11400000, guid: cb6fb63d64ba7874b94cba37586f524c, type: 2}
-  m_BonusText: {fileID: 674161876}
-  m_HitText: {fileID: 489879880}
-  m_StartTimer: 15
 --- !u!23 &1253107617
 MeshRenderer:
   m_ObjectHideFlags: 0

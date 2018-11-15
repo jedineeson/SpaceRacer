@@ -14,14 +14,7 @@ public class ZoneBonusEnd : MonoBehaviour
     {
         if (aOther.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            if (aOther.GetComponent<NormalShipController>())
-            {
-                aOther.GetComponent<NormalShipController>().GetBonus(m_Bonus, m_ObjectivesCount);
-            }
-            else if (aOther.GetComponent<SurvivalShipController>())
-            {
-                aOther.GetComponent<SurvivalShipController>().GetBonus(m_Bonus);
-            }
+            aOther.GetComponent<ControllerBase>().GetBonus(m_Bonus, m_ObjectivesCount);
         }
     }
 }
