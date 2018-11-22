@@ -6,9 +6,6 @@ using UnityEngine;
 public class TimerSurvival : TimerBase
 {
     [SerializeField]
-    private ControllerBase m_Player;
-
-    [SerializeField]
     private float m_StartTimer = 15;
 
     private float m_SurvivalTimer = 0;
@@ -26,18 +23,24 @@ public class TimerSurvival : TimerBase
 
     protected override void UpdateTimer()
     {
-        if (m_Player.CanControl)
+        if (GameManager.Instance.ShipController)
         {
-            m_Timer -= Time.deltaTime;
-            m_SurvivalTimer += Time.deltaTime;
+            if (GameManager.Instance.ShipController.CanControl)
+            {
+                m_Timer -= Time.deltaTime;
+                if (m_Timer > 0)
+                {
+                    m_SurvivalTimer += Time.deltaTime;
+                }
+            }
         }
     }
-
+    
     private void CheckTimer()
     {
         if (m_Timer < 0)
         {
-            m_Player.EndRun(3);
+            GameManager.Instance.ShipController.EndRun(3);
         }
     }
 

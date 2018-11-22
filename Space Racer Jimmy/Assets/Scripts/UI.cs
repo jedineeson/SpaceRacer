@@ -5,7 +5,6 @@ using TMPro;
 
 public class UI : MonoBehaviour
 {
-    //FAIRE DES ACTION IÇI!
     [SerializeField]
     private TextMeshProUGUI m_VelocityText;
     [SerializeField]

@@ -99,6 +99,11 @@ public class ControllerBase : MonoBehaviour
         set { m_BonusIsActive = value; }
     }
 
+    private void Awake()
+    {
+        GameManager.Instance.ShipController = this;
+    }
+
     private void Start()
     {
         #region SetValueFromData
@@ -124,7 +129,6 @@ public class ControllerBase : MonoBehaviour
         m_HpMax = m_Hp;
         m_BonusText.gameObject.SetActive(false);
         m_HitText.gameObject.SetActive(false);
-        GameManager.Instance.ShipController = this;
     }
 
     private void Update()
@@ -278,12 +282,18 @@ public class ControllerBase : MonoBehaviour
 
     private void OnCollisionExit(Collision aOther)
     {
-        LifeUnder0();
+        if (m_Hp <= 0)
+        {
+            LifeUnder0();
+        }
     }
 
     private void OnTriggerExit(Collider aOther)
     {
-        LifeUnder0();
+        if (m_Hp <= 0)
+        {
+            LifeUnder0();
+        }
         if (aOther.gameObject.layer == LayerMask.NameToLayer("Objective"))
         {
             m_ObjectivesCount += 1;
@@ -310,16 +320,13 @@ public class ControllerBase : MonoBehaviour
     {
         m_CanControl = false;
 
-        if (m_Hp <= 0)
+        if (m_CanRespawn)
         {
-            if (m_CanRespawn)
-            {
-                m_Respawn = true;
-            }
-            else
-            {
-                EndRun(3);
-            }
+            m_Respawn = true;
+        }
+        else
+        {
+            EndRun(3);
         }
     }
 
@@ -329,12 +336,12 @@ public class ControllerBase : MonoBehaviour
         {
             if (m_CanRespawn && m_ObjectivesCount >= aObjectives)
             {
-                m_Timer.TimeBonus(-aBonus);
+                m_Timer.Timer+=-aBonus;
                 m_BonusText.text = "-" + aBonus.ToString();
             }
             else if (!m_CanRespawn)
             {
-                m_Timer.TimeBonus(aBonus);
+                m_Timer.Timer+=aBonus;
                 m_BonusText.text = "+" + aBonus.ToString();
             }
             m_BonusTextTimer = m_HitBonusTextDuration;

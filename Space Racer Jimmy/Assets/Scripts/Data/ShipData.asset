@@ -15,7 +15,7 @@ MonoBehaviour:
   m_SlowDownSpeed: 0.5
   m_BreakSpeed: 5
   m_VelocityMax: 25
-  m_MovSpeed: 0.4
+  m_MovSpeed: 0.7
   m_RotationSpeed: 2
   m_Hp: 5
   m_HitBonusTextDuration: 0.75

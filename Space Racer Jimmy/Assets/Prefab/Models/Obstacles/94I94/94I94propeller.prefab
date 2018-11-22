@@ -23,8 +23,6 @@ GameObject:
   - component: {fileID: 23387493690866558}
   - component: {fileID: 108776672527224368}
   - component: {fileID: 114949576358252286}
-  - component: {fileID: 65393084194386372}
-  - component: {fileID: 65297583171575596}
   m_Layer: 28
   m_Name: pCube109
   m_TagString: Untagged
@@ -40,9 +38,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4812085417242584}
-  - component: {fileID: 95880043924507914}
   - component: {fileID: 54459193588925376}
   - component: {fileID: 114109836446924184}
+  - component: {fileID: 65494725621439038}
+  - component: {fileID: 65420229205771886}
   m_Layer: 28
   m_Name: 94I94propeller
   m_TagString: Untagged
@@ -158,7 +157,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1075368407893496}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.9400024}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4698979928891948}
@@ -250,48 +249,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &65297583171575596
+--- !u!65 &65420229205771886
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1035163416174170}
+  m_GameObject: {fileID: 1075368407893496}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.05, y: 0.8481959, z: 0.04}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65393084194386372
+--- !u!65 &65494725621439038
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1035163416174170}
+  m_GameObject: {fileID: 1075368407893496}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.84966636, y: 0.05, z: 0.04}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &95880043924507914
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1075368407893496}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 2d53c8b2eb6dc2545940498599b216fa, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!108 &108776672527224368
 Light:
   m_ObjectHideFlags: 1

@@ -7502,6 +7502,8 @@ GameObject:
   - component: {fileID: 1608988010}
   - component: {fileID: 1608988014}
   - component: {fileID: 1608988012}
+  - component: {fileID: 1608988015}
+  - component: {fileID: 1608988013}
   m_Layer: 28
   m_Name: 94I94propeller
   m_TagString: Untagged
@@ -7522,6 +7524,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PoolType: 23
   m_Quantity: 200
+--- !u!65 &1608988013
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1608988011}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05, y: 0.8481959, z: 0.04}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1608988014
 Animator:
   serializedVersion: 3
@@ -7541,6 +7555,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &1608988015
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1608988011}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.84966636, y: 0.05, z: 0.04}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1630065463
 GameObject:
   m_ObjectHideFlags: 0
@@ -9364,8 +9390,6 @@ GameObject:
   - component: {fileID: 2057075326}
   - component: {fileID: 2057075325}
   - component: {fileID: 2057075324}
-  - component: {fileID: 2057075323}
-  - component: {fileID: 2057075322}
   m_Layer: 28
   m_Name: pCube109
   m_TagString: Untagged
@@ -9387,32 +9411,6 @@ Transform:
   m_Father: {fileID: 1608988010}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2057075322
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65297583171575596, guid: aa8ce615451db2e4b8f32c611238563a,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2057075320}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.8481959, z: 0.04}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &2057075323
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65393084194386372, guid: aa8ce615451db2e4b8f32c611238563a,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2057075320}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.84966636, y: 0.05, z: 0.04}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2057075324
 MonoBehaviour:
   m_ObjectHideFlags: 0

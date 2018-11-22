@@ -12,7 +12,7 @@ public class Obstacle : MonoBehaviour
         HitPlayer(aOther.gameObject.GetComponent<ControllerBase>());
     }
 
-    protected virtual void OnTriggerEnter(Collider aOther)
+    private void OnTriggerEnter(Collider aOther)
     {
         HitPlayer(aOther.gameObject.GetComponent<ControllerBase>());
     }

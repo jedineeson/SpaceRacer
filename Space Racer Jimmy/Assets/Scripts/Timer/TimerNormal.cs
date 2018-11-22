@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class TimerNormal : TimerBase
 {
-    [SerializeField]
-    private ControllerBase m_Player;
-
     protected override void UpdateTimer()
     {
-        if (m_Player.CanControl)
+        if (GameManager.Instance.ShipController != null)
         {
-            m_Timer += Time.deltaTime;
+            if (GameManager.Instance.ShipController.CanControl)
+            {
+                m_Timer += Time.deltaTime;
+            }
         }
     }
 }

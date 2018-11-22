@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -48,7 +48,7 @@ LightmapSettings:
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
-    m_IndirectOutputScale: 2
+    m_IndirectOutputScale: 5
     m_AlbedoBoost: 2.83
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 0
@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000108, guid: 29f93abdfeef2694f80e6c38a7e834a3,
+  m_LightingDataAsset: {fileID: 112000088, guid: 29f93abdfeef2694f80e6c38a7e834a3,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -14061,7 +14061,6 @@ GameObject:
   - component: {fileID: 791972029}
   - component: {fileID: 1176448292}
   - component: {fileID: 1176448291}
-  - component: {fileID: 1176448290}
   - component: {fileID: 1176448289}
   - component: {fileID: 1176448288}
   - component: {fileID: 1176448287}
@@ -14139,25 +14138,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.020017922, y: 0.33999997, z: 3}
   m_Center: {x: 0.1599907, y: -0.000000059604645, z: 0}
---- !u!95 &1176448290
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 95341502799611280, guid: 59d7e50f44d11a6498e98d7b8ce850b6,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1176448284}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: ce741acd2d7e18f428730e5431d441f0, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!23 &1176448291
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17020,7 +17000,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f076dd44388e6294cb1bdd0a0587696d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Player: {fileID: 575895917}
 --- !u!4 &1385112732
 Transform:
   m_ObjectHideFlags: 0
@@ -23502,6 +23481,52 @@ Prefab:
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108271907781561838, guid: e634afc425b180b46ad8771f000a22a9,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.7241379
+      objectReference: {fileID: 0}
+    - target: {fileID: 108271907781561838, guid: e634afc425b180b46ad8771f000a22a9,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108271907781561838, guid: e634afc425b180b46ad8771f000a22a9,
+        type: 2}
+      propertyPath: m_Intensity
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 108271907781561838, guid: e634afc425b180b46ad8771f000a22a9,
+        type: 2}
+      propertyPath: m_Shadows.m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108271907781561838, guid: e634afc425b180b46ad8771f000a22a9,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 108271907781561838, guid: e634afc425b180b46ad8771f000a22a9,
+        type: 2}
+      propertyPath: m_BounceIntensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849690240950882, guid: e634afc425b180b46ad8771f000a22a9, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1177397102607192, guid: e634afc425b180b46ad8771f000a22a9, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785195428313524, guid: e634afc425b180b46ad8771f000a22a9, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208725926654064, guid: e634afc425b180b46ad8771f000a22a9, type: 2}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e634afc425b180b46ad8771f000a22a9, type: 2}

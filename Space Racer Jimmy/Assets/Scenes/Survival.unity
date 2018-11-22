@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -370,7 +370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 469442949}
   - component: {fileID: 469442950}
-  m_Layer: 30
+  m_Layer: 0
   m_Name: Spotlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 489879881}
   - component: {fileID: 489879882}
   - component: {fileID: 489879880}
-  m_Layer: 30
+  m_Layer: 0
   m_Name: Hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -883,7 +883,7 @@ GameObject:
   - component: {fileID: 674161877}
   - component: {fileID: 674161878}
   - component: {fileID: 674161876}
-  m_Layer: 30
+  m_Layer: 0
   m_Name: Bonus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1101,7 +1101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c47fff2654be0114bbd5dbd80eec66c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Player: {fileID: 1253107613}
   m_StartTimer: 15
 --- !u!4 &907000076
 Transform:
@@ -1583,7 +1582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2090089903}
   - component: {fileID: 2090089904}
-  m_Layer: 30
+  m_Layer: 0
   m_Name: Spotlight (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

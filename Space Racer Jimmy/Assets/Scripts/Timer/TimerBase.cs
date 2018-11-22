@@ -9,9 +9,10 @@ public class TimerBase : MonoBehaviour
     public float Timer
     {
         get { return m_Timer; }
+        set { m_Timer += value; }
     }
-	
-	protected virtual void Update ()
+
+    protected virtual void Update ()
     {
         UpdateTimer();
     }
@@ -24,11 +25,6 @@ public class TimerBase : MonoBehaviour
     protected virtual void SetEndTimer()
     {
 
-    }
-
-    public virtual void TimeBonus(float aBonus)
-    {
-        m_Timer += aBonus;
     }
 
     public virtual void EndTimer()

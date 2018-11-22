@@ -577,8 +577,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Bonus: 4
-  m_NewCamXLimit: 0.05
-  m_NewCamYLimit: 0.05
   m_ObjectivesCount: 0
 --- !u!114 &114286805043117628
 MonoBehaviour:
