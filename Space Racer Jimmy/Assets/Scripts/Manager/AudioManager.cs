@@ -67,7 +67,6 @@ public class AudioManager : MonoBehaviour
         GameObject audio = PoolManager.Instance.GetFromPool(EPoolType.HitSFX, aPosition);
         audio.GetComponent<SFXAudio>().Setup(aClip);
         audio.GetComponent<SFXAudio>().Play();
-        Debug.Log("Play");
     }
 }
 

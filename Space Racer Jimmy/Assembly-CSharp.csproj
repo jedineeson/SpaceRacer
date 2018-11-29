@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\CHEATS.cs" />
     <Compile Include="Assets\Scripts\Controller\ControllerBase.cs" />
     <Compile Include="Assets\Scripts\Controller\MenuShipController.cs" />
+    <Compile Include="Assets\Scripts\Controller\ShipController.cs" />
     <Compile Include="Assets\Scripts\Data\ShipData.cs" />
     <Compile Include="Assets\Scripts\GenerateTunnel.cs" />
     <Compile Include="Assets\Scripts\MakeTunnel.cs" />
@@ -74,8 +75,8 @@
     <Compile Include="Assets\Scripts\Manager\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Manager\PoolManager.cs" />
     <Compile Include="Assets\Scripts\Manager\ScoreManager.cs" />
-    <Compile Include="Assets\Scripts\Obstacle.cs" />
     <Compile Include="Assets\Scripts\Obstacles\MoveObject.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\Obstacle.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Propeller.cs" />
     <Compile Include="Assets\Scripts\Obstacles\RotateObjectAround.cs" />
     <Compile Include="Assets\Scripts\Pool\EPoolType.cs" />
@@ -89,7 +90,6 @@
     <Compile Include="Assets\Scripts\Timer\TimerNormal.cs" />
     <Compile Include="Assets\Scripts\Timer\TimerSurvival.cs" />
     <Compile Include="Assets\Scripts\Trigger\EndRun.cs" />
-    <Compile Include="Assets\Scripts\Trigger\Objectives.cs" />
     <Compile Include="Assets\Scripts\Trigger\ZoneBonusEnd.cs" />
     <Compile Include="Assets\Scripts\UI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />

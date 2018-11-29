@@ -42,6 +42,9 @@ public class MenuShipController : MonoBehaviour
         {
             transform.Rotate(-Vector3.forward);
         }
+
+        Mathf.Clamp(transform.position.y, -4.5f, 4.5f);
+        Mathf.Clamp(transform.position.x, -8.5f, 8.5f);
     }
 
     public void SetSceneToLoad(string aString, bool aCanChange)

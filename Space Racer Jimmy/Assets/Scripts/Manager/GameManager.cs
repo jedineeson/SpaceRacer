@@ -18,6 +18,13 @@ public class GameManager : MonoBehaviour
         set { m_TunnelGenerator = value; }
     }
 
+    private TimerBase m_Timer;
+    public TimerBase Timer
+    {
+        get { return m_Timer; }
+        set { m_Timer = value; }
+    }
+
     private static GameManager m_Instance;
     public static GameManager Instance
     {

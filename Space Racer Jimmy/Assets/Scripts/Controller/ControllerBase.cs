@@ -5,23 +5,36 @@ using TMPro;
 
 public class ControllerBase : MonoBehaviour
 {
-    [SerializeField]
-    private TimerBase m_Timer;
+    private GameManager m_GM = null;
+
     [SerializeField]
     private ShipData m_Data;
-    [SerializeField]
-    private TextMeshPro m_BonusText;
-    [SerializeField]
-    private TextMeshPro m_HitText;
 
     [SerializeField]
     private bool m_CanRespawn;
+
     [SerializeField]
     private List<Transform> m_SpawnPos;
 
+    private Vector3 m_ShipDirection = new Vector3();
+
+    private float m_HpMax;
+    private float m_Velocity = 0f;
+    private float m_EndTimer = 3f;
+    private float m_Horizontal;
+    private float m_Vertical;
+
+    private bool m_CanControl = false;
+    private bool m_BonusIsActive = true;
+    private bool m_Respawn = false;
+    private bool m_EndTimerTrigger = false;
+
+    private int m_ZoneReach = 0;
+    private int m_ObjectivesCount = 0;
+
     #region ContainsInData
     protected float m_Acceleration;
-    protected float m_SlowDownSpeed;
+    protected float m_SlowDown;
     protected float m_BreakSpeed;
     protected float m_VelocityMax;
     protected float m_MovSpeed;
@@ -39,28 +52,7 @@ public class ControllerBase : MonoBehaviour
     protected Transform m_GoStraightRight;
     #endregion
 
-    private Vector3 m_ShipDirection = new Vector3();
-
-    private float m_HpMax;
-    private float m_HitTextTimer;
-    private float m_BonusTextTimer;
-    private float m_Velocity = 0f;
-    private float m_EndTimer = 3f;
-    private float m_Horizontal;
-    private float m_Vertical;
-
-    private bool m_CanControl = false;
-    private bool m_BonusIsActive = true;
-    private bool m_Respawn = false;
-    private bool m_EndTimerTrigger = false;
-
-    private int m_ZoneReach = 0;
-    private int m_ObjectivesCount = 0;
-
-    public TimerBase Timer
-    {
-        get { return m_Timer; }
-    }
+    #region Getter/Setter
     public float Velocity
     {
         get { return m_Velocity; }
@@ -73,17 +65,6 @@ public class ControllerBase : MonoBehaviour
     {
         get { return m_Hp; }
     }
-    public float HitTextTimer
-    {
-        get { return m_HitTextTimer; }
-        set { m_HitTextTimer = value; }
-    }
-    public float HitBonusTextDuration
-    {
-        get { return m_HitBonusTextDuration; }
-        set { m_HitBonusTextDuration = value; }
-    }
-
     public bool EndTimerTrigger
     {
         get { return m_EndTimerTrigger; }
@@ -98,17 +79,19 @@ public class ControllerBase : MonoBehaviour
         get { return m_BonusIsActive; }
         set { m_BonusIsActive = value; }
     }
+    #endregion
 
     private void Awake()
     {
         GameManager.Instance.ShipController = this;
+        m_GM = GameManager.Instance;
     }
 
     private void Start()
     {
         #region SetValueFromData
         m_Acceleration = m_Data.Acceleration;
-        m_SlowDownSpeed = m_Data.SlowDownSpeed;
+        m_SlowDown = m_Data.SlowDown;
         m_BreakSpeed = m_Data.BreakSpeed;
         m_VelocityMax = m_Data.VelocityMax;
         m_MovSpeed = m_Data.MovSpeed;
@@ -127,14 +110,16 @@ public class ControllerBase : MonoBehaviour
         #endregion
 
         m_HpMax = m_Hp;
-        m_BonusText.gameObject.SetActive(false);
-        m_HitText.gameObject.SetActive(false);
     }
 
     private void Update()
     {
+        if(CanControl)
+        {
+            SetVelocity();
+        }
+
         Move();
-        ShowUIFeedBack();
         CheckEndTimer();
 
         if (m_Respawn)
@@ -143,39 +128,29 @@ public class ControllerBase : MonoBehaviour
         }
     }
 
+    private void SetVelocity()
+    {
+        m_Velocity += m_Acceleration * Time.deltaTime;
+        if (m_Velocity > m_VelocityMax)
+        {
+            m_Velocity = m_VelocityMax;
+        }
+    }
+
+    public void HitObstacle()
+    {
+        m_Velocity -= m_SlowDown;
+        SetLife(-1);
+        BonusIsActive = false;
+    }
+
     private void Move()
     {
         m_Horizontal = Input.GetAxis("Horizontal");
-        m_Vertical = Input.GetAxis("Vertical");
+        m_Vertical = -Input.GetAxis("Vertical");
 
         if (m_CanControl)
         {
-            if (Input.GetKey(KeyCode.W) || Input.GetButton("Break"))
-            {
-                m_Velocity -= m_BreakSpeed * Time.deltaTime;
-                if (m_Velocity < 0f)
-                {
-                    m_Velocity = 0f;
-                }
-            }
-
-            if (Input.GetKey(KeyCode.Space) || Input.GetButton("Gaz"))
-            {
-                m_Velocity += m_Acceleration * Time.deltaTime;
-                if (m_Velocity > m_VelocityMax)
-                {
-                    m_Velocity = m_VelocityMax;
-                }
-            }
-            else
-            {
-                m_Velocity -= m_SlowDownSpeed * Time.deltaTime;
-                if (m_Velocity < 0f)
-                {
-                    m_Velocity = 0f;
-                }
-            }
-
             if (Input.GetKey(KeyCode.E) || Input.GetButton("Left"))
             {
 
@@ -230,34 +205,10 @@ public class ControllerBase : MonoBehaviour
         }
     }
 
-    private void ShowUIFeedBack()
-    {
-        if (m_HitTextTimer > 0f)
-        {
-            m_HitText.gameObject.SetActive(true);
-            m_HitTextTimer -= Time.deltaTime;
-        }
-        else
-        {
-            m_HitText.gameObject.SetActive(false);
-            m_HitTextTimer = 0f;
-        }
-        if (m_BonusTextTimer > 0f)
-        {
-            m_BonusText.gameObject.SetActive(true);
-            m_BonusTextTimer -= Time.deltaTime;
-        }
-        else
-        {
-            m_BonusText.gameObject.SetActive(false);
-            m_BonusTextTimer = 0f;
-        }
-    }
-
     public void EndRun(int aLevel)
     {
-        ScoreManager.Instance.UpdateScoreList(aLevel, m_Timer.Timer);
-        m_Timer.EndTimer();
+        m_GM.Timer.EndTimer();
+        ScoreManager.Instance.UpdateScoreList(aLevel, m_GM.Timer.Timer);
         m_EndTimerTrigger = true;
         GameManager.Instance.TunnelGenerator.ReturnStuff();
         LevelManager.Instance.ChangeLevel("Result");
@@ -274,8 +225,9 @@ public class ControllerBase : MonoBehaviour
         {
             m_EndTimer -= Time.deltaTime;     
         }
-        if (m_EndTimer < 0)
+        if (m_EndTimer < 0 && m_EndTimerTrigger)
         {
+            m_EndTimerTrigger = false;
             EndRun(3);
         }
     }
@@ -332,19 +284,17 @@ public class ControllerBase : MonoBehaviour
 
     public void GetBonus(float aBonus, int aObjectives)
     {
+        Debug.Log(aBonus);
         if (m_BonusIsActive)
         {
             if (m_CanRespawn && m_ObjectivesCount >= aObjectives)
             {
-                m_Timer.Timer+=-aBonus;
-                m_BonusText.text = "-" + aBonus.ToString();
+                m_GM.Timer.GetBonus(aBonus);
             }
             else if (!m_CanRespawn)
             {
-                m_Timer.Timer+=aBonus;
-                m_BonusText.text = "+" + aBonus.ToString();
+                m_GM.Timer.GetBonus(aBonus);
             }
-            m_BonusTextTimer = m_HitBonusTextDuration;
             m_ObjectivesCount = 0;
             m_ZoneReach += 1;
             m_BonusIsActive = true;

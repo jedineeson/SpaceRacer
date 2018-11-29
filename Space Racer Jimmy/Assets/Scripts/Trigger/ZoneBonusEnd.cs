@@ -10,11 +10,9 @@ public class ZoneBonusEnd : MonoBehaviour
     [SerializeField]
     private int m_ObjectivesCount;
 
-    private void OnTriggerExit(Collider aOther)
+    private void OnTriggerEnter(Collider aOther)
     {
-        if (aOther.gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            aOther.GetComponent<ControllerBase>().GetBonus(m_Bonus, m_ObjectivesCount);
-        }
+        Debug.Log(aOther.gameObject.name);
+        aOther.GetComponent<ControllerBase>().GetBonus(m_Bonus, m_ObjectivesCount);
     }
 }

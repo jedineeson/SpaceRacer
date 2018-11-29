@@ -9,7 +9,12 @@ public class TimerBase : MonoBehaviour
     public float Timer
     {
         get { return m_Timer; }
-        set { m_Timer += value; }
+        set { m_Timer = value; }
+    }
+
+    protected virtual void Start()
+    {
+        GameManager.Instance.Timer = this;
     }
 
     protected virtual void Update ()
@@ -25,6 +30,11 @@ public class TimerBase : MonoBehaviour
     protected virtual void SetEndTimer()
     {
 
+    }
+
+    public virtual void GetBonus(float aBonus)
+    {
+        m_Timer += aBonus;
     }
 
     public virtual void EndTimer()

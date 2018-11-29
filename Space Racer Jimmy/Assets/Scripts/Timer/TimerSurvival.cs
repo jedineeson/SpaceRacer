@@ -10,9 +10,10 @@ public class TimerSurvival : TimerBase
 
     private float m_SurvivalTimer = 0;
 
-    private void Start()
+    protected override void Start()
     {
         m_Timer = m_StartTimer;
+        base.Start();
     }
 
     protected override void Update()

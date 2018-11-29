@@ -8,7 +8,7 @@ public class ShipData : ScriptableObject
     [SerializeField]
     private float m_Acceleration = 2.5f;
     [SerializeField]
-    private float m_SlowDownSpeed = 2f;
+    private float m_SlowDown = 2f;
     [SerializeField]
     private float m_BreakSpeed = 20f;
     [SerializeField]
@@ -84,9 +84,9 @@ public class ShipData : ScriptableObject
 	{
 		get{return m_Acceleration; }
 	}
-    public float SlowDownSpeed
+    public float SlowDown
 	{
-		get{return m_SlowDownSpeed;}
+		get{return m_SlowDown;}
 	}	
 	public float BreakSpeed
 	{

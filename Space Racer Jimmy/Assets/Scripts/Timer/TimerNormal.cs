@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class TimerNormal : TimerBase
 {
+    protected override void Start()
+    {
+        base.Start();
+    }
+
     protected override void UpdateTimer()
     {
         if (GameManager.Instance.ShipController != null)
