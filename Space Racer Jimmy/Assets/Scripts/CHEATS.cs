@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CHEATS : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject m_Canvas;
+
     private static CHEATS m_Instance;
     public static CHEATS Instance
     {
@@ -30,7 +33,9 @@ public class CHEATS : MonoBehaviour
     {
 #if UNITY_CHEAT
     Debug.Log("Debug Mode");
+    m_Canvas.SetActive(true);
 #else 
+    m_Canvas.SetActive(false);
     gameObject.setActive(false);
 #endif
     }
@@ -44,6 +49,14 @@ public class CHEATS : MonoBehaviour
             {
                 GameManager.Instance.ShipController.SetLife(1000);
                 Debug.Log("GAIN LIFE");
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            if (GameManager.Instance.ShipController != null)
+            {
+                GameManager.Instance.ShipController.EndTimerTrigger = true;
+                Debug.Log("END RUN");
             }
         }
 #endif

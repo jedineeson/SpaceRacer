@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75d3b6ca2da7f54da2cd8346475a218, type: 3}
   m_Name: ShipData
   m_EditorClassIdentifier: 
-  m_Acceleration: 0.5
+  m_Acceleration: 0.3
   m_SlowDown: 2
   m_BreakSpeed: 5
-  m_VelocityMax: 25
+  m_VelocityMax: 24
   m_MovSpeed: 0.9
   m_RotationSpeed: 2
   m_Hp: 5

@@ -12,7 +12,6 @@ public class ZoneBonusEnd : MonoBehaviour
 
     private void OnTriggerEnter(Collider aOther)
     {
-        Debug.Log(aOther.gameObject.name);
         aOther.GetComponent<ControllerBase>().GetBonus(m_Bonus, m_ObjectivesCount);
     }
 }

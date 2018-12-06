@@ -16,6 +16,8 @@ public class SelectALevel : MonoBehaviour
     private GameObject[] m_BlackStars = new GameObject[3];
     [SerializeField]
     private TextMeshPro m_HighScore;
+    [SerializeField]
+    private TextMeshProUGUI m_LevelName;
 
     private void Start()
     {
@@ -29,6 +31,15 @@ public class SelectALevel : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D aOther)
     {
+        m_LevelName.gameObject.SetActive(true);
+        if (m_Level == 0)
+        {
+            m_LevelName.text = "NORMAL";
+        }
+        else
+        {
+            m_LevelName.text = "SURVIVAL";
+        }
         if (aOther.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             if (ScoreManager.Instance.Result[m_Level].StarsCount == 0)
@@ -85,6 +96,7 @@ public class SelectALevel : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D aOther)
     {
+        m_LevelName.gameObject.SetActive(false);
         if (aOther.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             for (int i = 0; i <= 2; i++)

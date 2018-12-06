@@ -4,32 +4,28 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-
     private int m_Level;
+    private int m_LastStarsCount;
+    private float m_LastResult;
+    private List<float> m_Results = new List<float>();
+    private Result[] m_Result = new Result[5];
+
     public int Level
     {
         get { return m_Level; }
     }
-
-    private float m_LastResult;
     public float LastResult
     {
         get { return m_LastResult; }
     }
-
-    private int m_LastStarsCount;
     public int LastStarsCount
     {
         get { return m_LastStarsCount; }
     }
-
-    private List<float> m_Results = new List<float>();
     public List<float> Results
     {
         get { return m_Results; }
-    }
-
-    private Result[] m_Result = new Result[5];
+    }    
     public Result[] Result
     {
         get { return m_Result; }

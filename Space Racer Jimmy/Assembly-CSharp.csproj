@@ -66,7 +66,6 @@
     <Compile Include="Assets\Scripts\CHEATS.cs" />
     <Compile Include="Assets\Scripts\Controller\ControllerBase.cs" />
     <Compile Include="Assets\Scripts\Controller\MenuShipController.cs" />
-    <Compile Include="Assets\Scripts\Controller\ShipController.cs" />
     <Compile Include="Assets\Scripts\Data\ShipData.cs" />
     <Compile Include="Assets\Scripts\GenerateTunnel.cs" />
     <Compile Include="Assets\Scripts\MakeTunnel.cs" />
@@ -85,7 +84,6 @@
     <Compile Include="Assets\Scripts\ResultScreen.cs" />
     <Compile Include="Assets\Scripts\SelectALevel.cs" />
     <Compile Include="Assets\Scripts\SFXAudio.cs" />
-    <Compile Include="Assets\Scripts\ShowAvalaibleInTheBETAVersion.cs" />
     <Compile Include="Assets\Scripts\Timer\TimerBase.cs" />
     <Compile Include="Assets\Scripts\Timer\TimerNormal.cs" />
     <Compile Include="Assets\Scripts\Timer\TimerSurvival.cs" />

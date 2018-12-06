@@ -35,19 +35,7 @@ public class PoolManager : MonoBehaviour
     private void Start()
     {
         CreatePool();
-        //SceneManager.LoadScene("Main");
     }
-    /*
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (m_OnChangeScene != null)
-                m_OnChangeScene();
-				
-            SceneManager.LoadScene("Main");
-        }
-    }*/
 
     //Choisi un a_Type de l'enum, le setActive à la position du Vector3 désiré
     public GameObject GetFromPool(EPoolType a_Type, Vector3 a_Pos)

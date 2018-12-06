@@ -27,63 +27,23 @@ public class ShipData : ScriptableObject
     [SerializeField]
     private Transform m_GoLeft;
     [SerializeField]
-    private Transform m_GoLeftLeft;
-    [SerializeField]
-    private Transform m_GoLeftRight;
-    [SerializeField]
     private Transform m_GoRight;
-    [SerializeField]
-    private Transform m_GoRightLeft;
-    [SerializeField]
-    private Transform m_GoRightRight;
-    [SerializeField]
-    private Transform m_GoStraight;
-    [SerializeField]
-    private Transform m_GoStraightLeft;
-    [SerializeField]
-    private Transform m_GoStraightRight;
 
     public Transform GoLeft
     {
         get { return m_GoLeft; }
-    }    
-    public Transform GoLeftLeft
-    {
-        get { return m_GoLeftLeft; }
     }
-    public Transform GoLeftRight
-    {
-        get { return m_GoLeftRight;  }
-    }
+
     public Transform GoRight
     {
         get { return m_GoRight; }
-    }
-    public Transform GoRightLeft
-    {
-        get { return m_GoRightLeft; }
-    }
-    public Transform GoRightRight
-    {
-        get { return m_GoRightRight; }
-    }
-    public Transform GoStraight
-    {
-        get { return m_GoStraight; }
-    }
-    public Transform GoStraightLeft
-    {
-        get { return m_GoStraightLeft; }
-    }
-    public Transform GoStraightRight
-    {
-        get { return m_GoStraightRight; }
     }
 
     public float Acceleration
 	{
 		get{return m_Acceleration; }
 	}
+
     public float SlowDown
 	{
 		get{return m_SlowDown;}

@@ -8,5 +8,4 @@ public class AppLauncher : MonoBehaviour
     {
         LevelManager.Instance.ChangeLevel("Menu");
 	}
-	
 }

@@ -21,6 +21,7 @@ public class Obstacle : MonoBehaviour
     {
         AudioManager.Instance.PlaySFX(m_HitSFX, transform.position);
         aShip.SetLife(-1);
+        GameManager.Instance.UI.ShowHitFeedBack();
         aShip.BonusIsActive = false;
     }
 }

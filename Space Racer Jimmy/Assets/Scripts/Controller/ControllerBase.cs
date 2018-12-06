@@ -5,14 +5,12 @@ using TMPro;
 
 public class ControllerBase : MonoBehaviour
 {
-    private GameManager m_GM = null;
+    private GameManager m_GM = GameManager.Instance;
 
     [SerializeField]
     private ShipData m_Data;
-
     [SerializeField]
     private bool m_CanRespawn;
-
     [SerializeField]
     private List<Transform> m_SpawnPos;
 
@@ -42,14 +40,7 @@ public class ControllerBase : MonoBehaviour
     protected float m_Hp;
     protected float m_HitBonusTextDuration;
     protected Transform m_GoLeft;
-    protected Transform m_GoLeftLeft;
-    protected Transform m_GoLeftRight;
     protected Transform m_GoRight;
-    protected Transform m_GoRightLeft;
-    protected Transform m_GoRightRight;
-    protected Transform m_GoStraight;
-    protected Transform m_GoStraightLeft;
-    protected Transform m_GoStraightRight;
     #endregion
 
     #region Getter/Setter
@@ -68,6 +59,7 @@ public class ControllerBase : MonoBehaviour
     public bool EndTimerTrigger
     {
         get { return m_EndTimerTrigger; }
+        set { m_EndTimerTrigger = value; }
     }
     public bool CanControl
     {
@@ -84,7 +76,6 @@ public class ControllerBase : MonoBehaviour
     private void Awake()
     {
         GameManager.Instance.ShipController = this;
-        m_GM = GameManager.Instance;
     }
 
     private void Start()
@@ -99,14 +90,7 @@ public class ControllerBase : MonoBehaviour
         m_Hp = m_Data.Hp;
         m_HitBonusTextDuration = m_Data.HitBonusTextDuration;
         m_GoLeft = m_Data.GoLeft;
-        m_GoLeftLeft = m_Data.GoLeftLeft;
-        m_GoLeftRight = m_Data.GoLeftRight;
         m_GoRight = m_Data.GoRight;
-        m_GoRightLeft = m_Data.GoRightLeft;
-        m_GoRightRight = m_Data.GoRightRight;
-        m_GoStraight = m_Data.GoStraight;
-        m_GoStraightLeft = m_Data.GoStraightLeft;
-        m_GoStraightRight = m_Data.GoStraightRight;
         #endregion
 
         m_HpMax = m_Hp;
@@ -145,62 +129,24 @@ public class ControllerBase : MonoBehaviour
     }
 
     private void Move()
-    {
-        m_Horizontal = Input.GetAxis("Horizontal");
-        m_Vertical = -Input.GetAxis("Vertical");
-
+    {       
         if (m_CanControl)
         {
-            if (Input.GetKey(KeyCode.E) || Input.GetButton("Left"))
+            if (Input.GetKey(KeyCode.Q) || Input.GetButton("Left"))
             {
-
-                m_ShipDirection = new Vector3(-m_Vertical, m_Horizontal, m_Velocity);
-                if (m_Horizontal > 0f)
-                {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, m_GoLeftRight.rotation, m_RotationSpeed * Time.deltaTime);
-                }
-                else if (m_Horizontal < 0f)
-                {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, m_GoLeftLeft.rotation, m_RotationSpeed * Time.deltaTime);
-                }
-                else
-                {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, m_GoLeft.rotation, m_RotationSpeed * Time.deltaTime);
-                }
+                m_ShipDirection = new Vector3(-Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"), m_Velocity);
+                transform.rotation = Quaternion.Lerp(transform.rotation, m_GoLeft.rotation, m_RotationSpeed * Time.deltaTime);
             }
-            else if (Input.GetKey(KeyCode.Q) || Input.GetButton("Right"))
+            else if (Input.GetKey(KeyCode.E) || Input.GetButton("Right"))
             {
-                m_ShipDirection = new Vector3(m_Vertical, -m_Horizontal, m_Velocity);
-                if (m_Horizontal > 0f)
-                {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, m_GoRightRight.rotation, m_RotationSpeed * Time.deltaTime * 10);
-                }
-                else if (m_Horizontal < 0f)
-                {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, m_GoRightLeft.rotation, m_RotationSpeed * Time.deltaTime * 10);
-                }
-                else
-                {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, m_GoRight.rotation, m_RotationSpeed * Time.deltaTime);
-                }
+                m_ShipDirection = new Vector3(Input.GetAxis("Vertical"), -Input.GetAxis("Horizontal"), m_Velocity);
+                transform.rotation = Quaternion.Lerp(transform.rotation, m_GoRight.rotation, m_RotationSpeed * Time.deltaTime);
             }
             else
             {
-                m_ShipDirection = new Vector3(m_Horizontal, m_Vertical, m_Velocity);
-                if (m_Horizontal > 0f)
-                {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, m_GoStraightRight.rotation, m_RotationSpeed * Time.deltaTime * 10);
-                }
-                else if (m_Horizontal < 0f)
-                {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, m_GoStraightLeft.rotation, m_RotationSpeed * Time.deltaTime * 10);
-                }
-                else
-                {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, m_RotationSpeed * Time.deltaTime);
-                }
+                m_ShipDirection = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), m_Velocity);
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, m_RotationSpeed * Time.deltaTime);
             }
-
             transform.position += m_ShipDirection * m_MovSpeed * Time.deltaTime;
         }
     }
@@ -210,7 +156,13 @@ public class ControllerBase : MonoBehaviour
         m_GM.Timer.EndTimer();
         ScoreManager.Instance.UpdateScoreList(aLevel, m_GM.Timer.Timer);
         m_EndTimerTrigger = true;
-        GameManager.Instance.TunnelGenerator.ReturnStuff();
+
+        if (!m_CanRespawn)
+        {
+            //Return Stuff If Survival
+            GameManager.Instance.TunnelGenerator.ReturnStuff();
+        }
+
         LevelManager.Instance.ChangeLevel("Result");
     }
 
@@ -254,7 +206,7 @@ public class ControllerBase : MonoBehaviour
 
     private void Respawn()
     {
-        transform.rotation = Quaternion.Lerp(transform.rotation, m_GoStraight.rotation, m_RotationSpeed * Time.deltaTime * 10);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, m_RotationSpeed * Time.deltaTime * 10);
         transform.position = Vector3.Lerp(transform.position, m_SpawnPos[m_ZoneReach].position, Time.deltaTime);
 
         if (transform.position.z <= m_SpawnPos[m_ZoneReach].position.z + 1
@@ -288,10 +240,6 @@ public class ControllerBase : MonoBehaviour
         if (m_BonusIsActive)
         {
             if (m_CanRespawn && m_ObjectivesCount >= aObjectives)
-            {
-                m_GM.Timer.GetBonus(aBonus);
-            }
-            else if (!m_CanRespawn)
             {
                 m_GM.Timer.GetBonus(aBonus);
             }

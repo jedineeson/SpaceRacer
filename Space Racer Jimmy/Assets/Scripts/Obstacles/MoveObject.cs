@@ -12,9 +12,6 @@ public class MoveObject : MonoBehaviour
     private bool m_GoToPos1 = true;
     private bool m_GoToPos2 = false;
 
-    /*private Vector3 m_PosUp = new Vector3(0f, 25f, 0f);
-    private Vector3 m_PosBot = new Vector3(0f, -25f, 0f);*/
-
     private void Start ()
     {
         if (m_Invert)

@@ -34,7 +34,8 @@ public class TimerBase : MonoBehaviour
 
     public virtual void GetBonus(float aBonus)
     {
-        m_Timer += aBonus;
+        m_Timer -= aBonus;
+        GameManager.Instance.UI.ShowFeedBack(true, "BONUS!");
     }
 
     public virtual void EndTimer()

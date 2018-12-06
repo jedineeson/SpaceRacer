@@ -9,6 +9,8 @@ public class MenuShipController : MonoBehaviour
     [SerializeField]
     private float m_RotSpeed;
 
+    private Vector3 m_Vector = new Vector3();
+
     private float m_Horizontal;
 
     private string m_SceneToLoad;
@@ -21,30 +23,36 @@ public class MenuShipController : MonoBehaviour
 
     private void Update()
     {
-        m_Horizontal = Input.GetAxis("Horizontal");
+        Move();
+        Clamp();
+    }
 
-        if ((Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.E) 
-            || Input.GetButton("Break") || Input.GetButton("Left") || Input.GetButton("Right"))
-            && m_CanChangeScene)
+    private void Move()
+    {
+        if (Input.GetKey(KeyCode.Space) && m_CanChangeScene)
         {
             LevelManager.Instance.ChangeLevel(m_SceneToLoad);
         }
 
-        if ((Input.GetKey(KeyCode.Space) || Input.GetButton("Gaz")))
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector3.up * m_MovSpeed * Time.deltaTime);
         }
-        if ((m_Horizontal < 0 || Input.GetKey(KeyCode.LeftArrow)) && !Input.GetKey(KeyCode.RightArrow))
+        if ((Input.GetAxis("Horizontal") < 0 || Input.GetKey(KeyCode.LeftArrow)) && !Input.GetKey(KeyCode.RightArrow))
         {
             transform.Rotate(Vector3.forward);
         }
-        else if ((m_Horizontal > 0 || Input.GetKey(KeyCode.RightArrow)) && !Input.GetKey(KeyCode.LeftArrow))
+        else if ((Input.GetAxis("Horizontal") > 0 || Input.GetKey(KeyCode.RightArrow)) && !Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Rotate(-Vector3.forward);
         }
+    }
 
-        Mathf.Clamp(transform.position.y, -4.5f, 4.5f);
-        Mathf.Clamp(transform.position.x, -8.5f, 8.5f);
+    private void Clamp()
+    {
+        m_Vector.y = Mathf.Clamp(transform.position.y, -4.5f, 4.5f);
+        m_Vector.x = Mathf.Clamp(transform.position.x, -8.5f, 8.5f);
+        transform.position = m_Vector;
     }
 
     public void SetSceneToLoad(string aString, bool aCanChange)

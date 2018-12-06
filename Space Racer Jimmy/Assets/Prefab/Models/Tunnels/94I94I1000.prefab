@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 65332501567742144}
   - component: {fileID: 65426759265440392}
   - component: {fileID: 65498967447997758}
+  - component: {fileID: 114797909675192110}
+  - component: {fileID: 114747054416536036}
   m_Layer: 29
   m_Name: 94I94I1000
   m_TagString: Untagged
@@ -135,3 +137,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.93999875, y: 0.024088204, z: 10}
   m_Center: {x: 0, y: -0.45795575, z: 0}
+--- !u!114 &114747054416536036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1889312278360362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f61bc86e1ac76c745872a2d63a4f4c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PoolType: 5
+  m_Quantity: 200
+--- !u!114 &114797909675192110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1889312278360362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49479c7fae0deda4c917492e791019e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HitSFX: {fileID: 8300000, guid: 486c4196e95d0f749b1f03af83196492, type: 3}
